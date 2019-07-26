@@ -1,0 +1,86 @@
+%%%%%
+%This is the main file.  This is where you set up your preferences, name the packages you need, and use the "input" command to order the chapters and other major components of your thesis, most of which are set up as separate .tex files.  To see other project files, click the "Project" tab on the upper left.  If you click on a section in the pdf preview, you will jump to that file (Overleaf).
+%%%%%
+
+\documentclass[12pt]{report}  %12 point font is set - Times New Roman is the default
+
+%These are a bunch of packages that may or may not be needed for features I use later
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{rotating}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage[toc,page]{appendix}
+\usepackage{glossaries}
+\input{glossary}
+\renewcommand\bibname{References}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+\usepackage[letterpaper,left=0.75in,right=0.75in,top=0.75in,bottom=0.75in]{geometry} %margin of bound side 0.75 in as per the additional spacing
+\usepackage{pdflscape}
+\usepackage{subfigure}
+\usepackage{pdfpages}
+\usepackage{subfloat}
+\usepackage{verbatim} 
+
+\usepackage{natbib}
+\setlength{\bibsep}{0.5pt}
+\setcitestyle{square}
+
+
+\widowpenalty10000% This automatically groups lines so there is at least 2 from each paragraph on a page.  Optional
+\clubpenalty10000 %see above comment
+\usepackage{breqn}
+
+\begin{document}
+\pagenumbering{arabic}
+\newpage
+\thispagestyle{empty}
+\mbox{}
+
+\input{cover} %title page
+
+\singlespacing
+%\thispagestyle{empty} % do not display page number
+\mbox{}
+
+\clearpage
+
+
+\tableofcontents %automatically generate TOC
+
+\clearpage
+
+%\listoftables %automatically generates list of tables
+%\clearpage
+%\listoffigures%automatically generates list of figures
+%\clearpage
+
+
+
+ % start normal numbering on the first page of chapter 1
+\input{chapter1.tex}
+
+\input{chapter2.tex}
+
+\input{chapter3.tex}
+
+\clearpage
+
+%
+\addcontentsline{toc}{chapter}{Glossary}
+\printnoidxglossaries
+%\printglossary
+
+
+%.tex method to make a references section
+%\addcontentsline{toc}{chapter}{References}
+\input{biblio2.tex}
+
+\end{document}
